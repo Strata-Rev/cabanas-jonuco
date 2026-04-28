@@ -1,0 +1,1163 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cabañas El Jonúco — Valle de los Cañones, Monterrey</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,700;1,9..144,300&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --sand: #F5EFE0;
+    --sand-dark: #E8DCC8;
+    --earth: #8B6B4A;
+    --earth-dark: #5C3D1E;
+    --forest: #3D5A3E;
+    --forest-light: #6B8F6C;
+    --sky: #B8D4E8;
+    --cream: #FAF7F0;
+    --text: #2C1810;
+    --text-muted: #7A6A5A;
+    --white: #FFFFFF;
+    --accent: #C8783C;
+    --accent-dark: #9E5A20;
+    --success: #3D5A3E;
+    --border: rgba(139,107,74,0.2);
+    --shadow: 0 8px 40px rgba(44,24,16,0.12);
+    --shadow-sm: 0 2px 12px rgba(44,24,16,0.08);
+    --r: 16px;
+    --r-sm: 8px;
+  }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--text);
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* ── NAVBAR ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 20px 60px;
+    background: rgba(250,247,240,0.85);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-logo {
+    font-family: 'Fraunces', serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--earth-dark);
+    letter-spacing: -0.5px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .nav-logo span { color: var(--accent); }
+  .nav-logo-badge {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    border-left: 1px solid var(--border);
+    padding-left: 8px;
+  }
+  .nav-links { display: flex; gap: 32px; list-style: none; }
+  .nav-links a { text-decoration: none; color: var(--text-muted); font-size: 14px; font-weight: 500; letter-spacing: 0.3px; transition: color .2s; }
+  .nav-links a:hover { color: var(--accent); }
+  .nav-cta {
+    background: var(--earth-dark); color: var(--white);
+    padding: 10px 24px; border-radius: 50px; border: none;
+    font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 500;
+    cursor: pointer; transition: background .2s, transform .1s;
+  }
+  .nav-cta:hover { background: var(--accent); transform: translateY(-1px); }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    background: linear-gradient(160deg, #C9A87A 0%, #9B7248 40%, #5C3D1E 100%);
+    position: relative; overflow: hidden;
+    display: flex; align-items: center;
+    padding: 120px 60px 80px;
+  }
+  .hero-photo-bg {
+    position: absolute;
+    inset: 0;
+    background-image: url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1600&q=80');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.35;
+  }
+  .hero-bg-circle {
+    position: absolute; border-radius: 50%;
+    background: rgba(255,255,255,0.05);
+  }
+  .hero-bg-circle.c1 { width: 600px; height: 600px; top: -200px; right: -100px; }
+  .hero-bg-circle.c2 { width: 300px; height: 300px; bottom: 50px; right: 200px; }
+  .hero-content { flex: 1; max-width: 560px; position: relative; z-index: 2; }
+  .hero-tag {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: rgba(255,255,255,0.2); backdrop-filter: blur(8px);
+    color: var(--sand); font-size: 12px; font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase;
+    padding: 6px 16px; border-radius: 50px; border: 1px solid rgba(255,255,255,0.3);
+    margin-bottom: 24px;
+  }
+  .hero-tag::before { content:''; width:6px; height:6px; background:var(--accent); border-radius:50%; }
+  .hero h1 {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(42px, 5.5vw, 68px);
+    font-weight: 700; line-height: 1.05;
+    color: var(--white);
+    margin-bottom: 20px;
+    text-shadow: 0 2px 20px rgba(44,24,16,0.4);
+  }
+  .hero h1 em { font-style: italic; color: #F5C890; }
+  .hero p {
+    font-size: 17px; font-weight: 300; line-height: 1.7;
+    color: rgba(255,255,255,0.85);
+    margin-bottom: 40px; max-width: 460px;
+  }
+  .hero-stats { display: flex; gap: 40px; }
+  .hero-stat-num { font-family: 'Fraunces', serif; font-size: 30px; font-weight: 700; color: var(--white); }
+  .hero-stat-label { font-size: 12px; color: rgba(255,255,255,0.65); margin-top: 2px; }
+
+  /* ── BOOKING FLOAT ── */
+  .booking-float {
+    flex: 0 0 auto; width: 420px;
+    background: var(--white);
+    border-radius: 24px;
+    padding: 32px;
+    box-shadow: 0 24px 80px rgba(44,24,16,0.3);
+    position: relative; z-index: 2;
+    margin-left: 60px;
+    animation: floatUp 0.8s ease-out both;
+  }
+  @keyframes floatUp { from { opacity:0; transform: translateY(30px); } to { opacity:1; transform: none; } }
+  .booking-float-title {
+    font-family: 'Fraunces', serif; font-size: 21px; font-weight: 500;
+    color: var(--earth-dark); margin-bottom: 6px;
+  }
+  .booking-float-subtitle {
+    font-size: 13px; color: var(--text-muted); margin-bottom: 24px;
+  }
+  .booking-float-title span { color: var(--accent); }
+
+  .form-group { margin-bottom: 16px; }
+  .form-label {
+    display: block; font-size: 11px; font-weight: 500; letter-spacing: 1px;
+    text-transform: uppercase; color: var(--text-muted); margin-bottom: 6px;
+  }
+  .form-input, .form-select {
+    width: 100%; padding: 12px 16px;
+    border: 1.5px solid var(--border);
+    border-radius: var(--r-sm); background: var(--cream);
+    font-family: 'DM Sans', sans-serif; font-size: 15px; color: var(--text);
+    transition: border-color .2s, box-shadow .2s; outline: none;
+    appearance: none;
+  }
+  .form-input:focus, .form-select:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(200,120,60,0.12);
+  }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .date-input-wrapper { position: relative; }
+  .date-icon { position: absolute; right: 12px; top: 50%; transform: translateY(-50%); color: var(--text-muted); pointer-events: none; font-size: 14px; }
+
+  .guests-row {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 12px 16px; border: 1.5px solid var(--border);
+    border-radius: var(--r-sm); background: var(--cream);
+  }
+  .guests-label { font-size: 15px; color: var(--text); }
+  .guests-controls { display: flex; align-items: center; gap: 12px; }
+  .guest-btn {
+    width: 28px; height: 28px; border-radius: 50%;
+    border: 1.5px solid var(--border);
+    background: var(--white); cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px; color: var(--earth); transition: all .2s;
+  }
+  .guest-btn:hover { background: var(--accent); color: var(--white); border-color: var(--accent); }
+  .guest-count { font-size: 16px; font-weight: 500; min-width: 20px; text-align: center; }
+
+  .price-preview {
+    background: var(--sand); border-radius: var(--r-sm);
+    padding: 16px; margin: 20px 0;
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .price-from { font-size: 12px; color: var(--text-muted); }
+  .price-total { font-family: 'Fraunces', serif; font-size: 26px; font-weight: 700; color: var(--earth-dark); }
+  .price-per-night { font-size: 12px; color: var(--text-muted); }
+
+  .btn-book {
+    width: 100%; padding: 16px;
+    background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%);
+    color: var(--white); border: none; border-radius: 50px;
+    font-family: 'DM Sans', sans-serif; font-size: 16px; font-weight: 500;
+    cursor: pointer; transition: all .3s; letter-spacing: 0.3px;
+    position: relative; overflow: hidden;
+  }
+  .btn-book::after { content: ''; position: absolute; inset: 0; background: rgba(255,255,255,0); transition: background .2s; }
+  .btn-book:hover::after { background: rgba(255,255,255,0.1); }
+  .btn-book:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(200,120,60,0.4); }
+
+  .trust-row {
+    display: flex; justify-content: center; gap: 20px;
+    margin-top: 16px; padding-top: 16px;
+    border-top: 1px solid var(--border);
+  }
+  .trust-item { font-size: 11px; color: var(--text-muted); display: flex; align-items: center; gap: 4px; }
+  .trust-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--forest-light); }
+
+  /* ── SECTION ── */
+  .section { padding: 100px 60px; }
+  .section-tag {
+    display: inline-block; font-size: 11px; font-weight: 500;
+    letter-spacing: 2px; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 12px;
+  }
+  .section-title {
+    font-family: 'Fraunces', serif; font-size: clamp(34px, 4vw, 50px);
+    font-weight: 700; line-height: 1.1; color: var(--text);
+    margin-bottom: 16px;
+  }
+  .section-title em { font-style: italic; color: var(--earth); }
+  .section-sub { font-size: 17px; color: var(--text-muted); max-width: 520px; line-height: 1.7; }
+
+  /* ── PROPERTY CARDS ── */
+  .properties-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px;
+    margin-top: 60px;
+  }
+  .property-card {
+    border-radius: 20px; overflow: hidden;
+    background: var(--white);
+    box-shadow: var(--shadow-sm);
+    cursor: pointer; transition: all .3s;
+    position: relative;
+    opacity: 0; transform: translateY(24px);
+  }
+  .property-card.animate-in { animation: fadeIn 0.6s ease-out both; }
+  .property-card:hover { transform: translateY(-6px); box-shadow: var(--shadow); }
+  .property-img { height: 260px; position: relative; overflow: hidden; }
+  .property-img img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s ease; }
+  .property-card:hover .property-img img { transform: scale(1.06); }
+  .property-badge {
+    position: absolute; top: 16px; left: 16px;
+    background: rgba(255,255,255,0.95); backdrop-filter: blur(4px);
+    color: var(--earth-dark); font-size: 11px; font-weight: 500;
+    padding: 4px 12px; border-radius: 50px; letter-spacing: 0.5px;
+  }
+  .property-favorite {
+    position: absolute; top: 16px; right: 16px;
+    width: 36px; height: 36px; border-radius: 50%;
+    background: rgba(255,255,255,0.9); border: none; cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 16px; transition: all .2s;
+  }
+  .property-favorite:hover { background: var(--white); transform: scale(1.1); }
+  .property-body { padding: 22px; }
+  .property-location { font-size: 11px; color: var(--text-muted); letter-spacing: 0.5px; text-transform: uppercase; margin-bottom: 6px; }
+  .property-name { font-family: 'Fraunces', serif; font-size: 22px; font-weight: 500; color: var(--text); margin-bottom: 8px; }
+  .property-desc { font-size: 13px; color: var(--text-muted); line-height: 1.6; margin-bottom: 14px; }
+  .property-features { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 16px; }
+  .property-feat { font-size: 12px; color: var(--text-muted); display: flex; align-items: center; gap: 4px; }
+  .property-footer { display: flex; justify-content: space-between; align-items: center; padding-top: 14px; border-top: 1px solid var(--border); }
+  .property-price { font-family: 'Fraunces', serif; }
+  .property-price-amount { font-size: 22px; font-weight: 700; color: var(--earth-dark); }
+  .property-price-night { font-size: 12px; color: var(--text-muted); }
+  .property-rating { display: flex; align-items: center; gap: 4px; font-size: 13px; font-weight: 500; color: var(--text); }
+  .stars { color: #F0A030; font-size: 11px; }
+  .btn-ver {
+    margin-top: 16px; width: 100%;
+    padding: 12px;
+    background: var(--sand); color: var(--earth-dark); border: none;
+    border-radius: 50px; font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 500;
+    cursor: pointer; transition: all .2s;
+  }
+  .btn-ver:hover { background: var(--accent); color: var(--white); }
+
+  /* Photo gallery strip */
+  .photo-strip {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    grid-template-rows: 200px 200px;
+    gap: 8px;
+    border-radius: 16px;
+    overflow: hidden;
+    margin-top: 12px;
+  }
+  .photo-strip img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .photo-strip img:first-child { grid-row: span 2; }
+
+  /* ── AMENITIES ── */
+  .amenities-section {
+    background: var(--sand);
+    padding: 100px 60px;
+  }
+  .amenities-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    margin-top: 60px;
+  }
+  .amenity-card {
+    background: var(--white);
+    border-radius: 16px;
+    padding: 24px;
+    text-align: center;
+    box-shadow: var(--shadow-sm);
+    transition: transform .2s;
+  }
+  .amenity-card:hover { transform: translateY(-4px); }
+  .amenity-icon { font-size: 32px; margin-bottom: 12px; }
+  .amenity-name { font-family: 'Fraunces', serif; font-size: 16px; font-weight: 500; color: var(--text); margin-bottom: 6px; }
+  .amenity-desc { font-size: 12px; color: var(--text-muted); line-height: 1.5; }
+
+  /* ── HOW IT WORKS ── */
+  .how-section {
+    background: var(--earth-dark);
+    padding: 100px 60px;
+    position: relative; overflow: hidden;
+  }
+  .how-section::before {
+    content: ''; position: absolute;
+    top: -100px; right: -100px;
+    width: 500px; height: 500px; border-radius: 50%;
+    background: rgba(255,255,255,0.04);
+  }
+  .steps-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; margin-top: 60px; }
+  .step-card { position: relative; }
+  .step-num { font-family: 'Fraunces', serif; font-size: 60px; font-weight: 700; color: rgba(255,255,255,0.07); line-height: 1; margin-bottom: -14px; }
+  .step-icon { width: 52px; height: 52px; border-radius: 14px; background: rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; font-size: 22px; margin-bottom: 16px; }
+  .step-title { font-family: 'Fraunces', serif; font-size: 20px; font-weight: 500; color: var(--white); margin-bottom: 10px; }
+  .step-desc { font-size: 14px; color: rgba(255,255,255,0.6); line-height: 1.7; }
+
+  /* ── ACTIVITIES ── */
+  .activities-section { padding: 100px 60px; }
+  .activities-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 60px; }
+  .activity-card {
+    border-radius: 16px; overflow: hidden;
+    background: var(--white); box-shadow: var(--shadow-sm);
+    transition: transform .3s;
+  }
+  .activity-card:hover { transform: translateY(-4px); }
+  .activity-img {
+    height: 140px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 48px;
+  }
+  .activity-body { padding: 20px; }
+  .activity-name { font-family: 'Fraunces', serif; font-size: 18px; font-weight: 500; margin-bottom: 6px; }
+  .activity-desc { font-size: 13px; color: var(--text-muted); line-height: 1.6; }
+  .activity-note { font-size: 11px; color: var(--accent); font-weight: 500; margin-top: 8px; }
+
+  /* ── TESTIMONIALS ── */
+  .testimonials-section { padding: 100px 60px; background: var(--cream); }
+  .testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 60px; }
+  .testimonial-card { background: var(--white); border-radius: 20px; padding: 28px; box-shadow: var(--shadow-sm); }
+  .testimonial-quote { font-family: 'Fraunces', serif; font-size: 42px; color: var(--accent); line-height: 1; margin-bottom: 12px; }
+  .testimonial-text { font-size: 15px; line-height: 1.7; color: var(--text); margin-bottom: 20px; font-style: italic; font-family: 'Fraunces', serif; font-weight: 300; }
+  .testimonial-author { display: flex; align-items: center; gap: 12px; }
+  .author-avatar { width: 44px; height: 44px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 500; font-size: 16px; color: var(--white); }
+  .author-name { font-size: 14px; font-weight: 500; color: var(--text); }
+  .author-trip { font-size: 12px; color: var(--text-muted); }
+
+  /* ── CTA CALENDAR ── */
+  .cta-section {
+    padding: 100px 60px;
+    display: flex; gap: 60px; align-items: center;
+  }
+  .cta-content { flex: 1; }
+  .cta-buttons { display: flex; gap: 16px; margin-top: 32px; }
+  .btn-primary {
+    padding: 14px 32px; border-radius: 50px;
+    background: var(--accent); color: var(--white); border: none;
+    font-family: 'DM Sans', sans-serif; font-size: 15px; font-weight: 500;
+    cursor: pointer; transition: all .2s;
+  }
+  .btn-primary:hover { background: var(--accent-dark); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(200,120,60,0.35); }
+  .btn-secondary {
+    padding: 14px 32px; border-radius: 50px;
+    background: transparent; color: var(--text); border: 1.5px solid var(--border);
+    font-family: 'DM Sans', sans-serif; font-size: 15px; font-weight: 500;
+    cursor: pointer; transition: all .2s;
+  }
+  .btn-secondary:hover { border-color: var(--earth); background: var(--sand); }
+
+  .cta-visual {
+    flex: 0 0 420px; background: linear-gradient(135deg, var(--sand) 0%, var(--sand-dark) 100%);
+    border-radius: 24px; padding: 32px; position: relative; overflow: hidden;
+  }
+  .cta-availability { background: var(--white); border-radius: 16px; padding: 20px; box-shadow: var(--shadow-sm); margin-bottom: 16px; }
+  .avail-title { font-size: 12px; color: var(--text-muted); letter-spacing: 0.5px; text-transform: uppercase; margin-bottom: 12px; }
+  .avail-calendar { display: grid; grid-template-columns: repeat(7, 1fr); gap: 4px; }
+  .cal-day { aspect-ratio: 1; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 500; cursor: pointer; }
+  .cal-day.available { background: rgba(61,90,62,0.12); color: var(--forest); }
+  .cal-day.booked { background: rgba(200,120,60,0.15); color: var(--accent); }
+  .cal-day.today { background: var(--accent); color: var(--white); }
+  .cal-day.empty { background: transparent; }
+
+  /* ── IMPORTANT NOTES ── */
+  .notes-section { padding: 60px 60px; background: var(--sand-dark); }
+  .notes-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 40px; }
+  .note-card { background: var(--white); border-radius: 16px; padding: 24px; border-left: 4px solid var(--accent); }
+  .note-icon { font-size: 24px; margin-bottom: 10px; }
+  .note-title { font-family: 'Fraunces', serif; font-size: 16px; font-weight: 600; margin-bottom: 8px; color: var(--earth-dark); }
+  .note-text { font-size: 13px; color: var(--text-muted); line-height: 1.6; }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--earth-dark); color: var(--white);
+    padding: 60px 60px 40px;
+  }
+  .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 48px; }
+  .footer-brand .nav-logo { color: var(--white); font-size: 20px; margin-bottom: 12px; }
+  .footer-desc { font-size: 14px; color: rgba(255,255,255,0.5); line-height: 1.7; max-width: 260px; }
+  .footer-title { font-size: 11px; font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-bottom: 16px; }
+  .footer-links { list-style: none; }
+  .footer-links li { margin-bottom: 10px; }
+  .footer-links a { color: rgba(255,255,255,0.65); font-size: 14px; text-decoration: none; transition: color .2s; }
+  .footer-links a:hover { color: var(--white); }
+  .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 24px; display: flex; justify-content: space-between; align-items: center; }
+  .footer-copy { font-size: 12px; color: rgba(255,255,255,0.35); }
+  .footer-contact { font-size: 13px; color: rgba(255,255,255,0.6); }
+  .footer-contact a { color: var(--accent); text-decoration: none; }
+
+  /* ── MODAL ── */
+  .modal-overlay {
+    position: fixed; inset: 0; z-index: 1000;
+    background: rgba(44,24,16,0.75); backdrop-filter: blur(4px);
+    display: flex; align-items: center; justify-content: center;
+    opacity: 0; pointer-events: none; transition: opacity .3s;
+  }
+  .modal-overlay.active { opacity: 1; pointer-events: all; }
+  .modal {
+    background: var(--white); border-radius: 24px;
+    width: 90%; max-width: 540px; max-height: 90vh;
+    overflow-y: auto; padding: 40px;
+    transform: translateY(20px) scale(0.97); transition: transform .3s;
+  }
+  .modal-overlay.active .modal { transform: none; }
+  .modal-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 28px; }
+  .modal-title { font-family: 'Fraunces', serif; font-size: 26px; font-weight: 500; color: var(--text); }
+  .modal-close { background: none; border: none; cursor: pointer; font-size: 24px; color: var(--text-muted); padding: 4px; }
+  .booking-steps { display: flex; gap: 0; margin-bottom: 32px; }
+  .step-indicator { flex: 1; text-align: center; padding-bottom: 12px; border-bottom: 2px solid var(--border); font-size: 12px; color: var(--text-muted); font-weight: 500; transition: all .3s; }
+  .step-indicator.active { border-color: var(--accent); color: var(--accent); }
+  .step-indicator.done { border-color: var(--forest); color: var(--forest); }
+  .payment-methods { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin: 16px 0; }
+  .pay-method { border: 1.5px solid var(--border); border-radius: 8px; padding: 10px; text-align: center; cursor: pointer; transition: all .2s; font-size: 12px; color: var(--text-muted); }
+  .pay-method:hover, .pay-method.selected { border-color: var(--accent); color: var(--accent); background: rgba(200,120,60,0.05); }
+  .booking-summary { background: var(--sand); border-radius: 12px; padding: 20px; margin: 20px 0; }
+  .summary-row { display: flex; justify-content: space-between; margin-bottom: 8px; font-size: 14px; }
+  .summary-row.total { font-weight: 500; font-size: 16px; padding-top: 12px; border-top: 1px solid var(--border); margin-top: 8px; }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: none; } }
+  .animate-in { animation: fadeIn 0.6s ease-out both; }
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav>
+  <div class="nav-logo">
+    <span style="color:var(--earth-dark)">El</span> <span>Jonúco</span>
+    <span class="nav-logo-badge">Cabañas · Valle Huasteca</span>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#alojamientos">Alojamientos</a></li>
+    <li><a href="#actividades">Actividades</a></li>
+    <li><a href="#como-llegar">Cómo llegar</a></li>
+    <li><a href="#contacto">Contacto</a></li>
+  </ul>
+  <button class="nav-cta" onclick="openModal()">Reservar ahora</button>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-photo-bg"></div>
+  <div class="hero-bg-circle c1"></div>
+  <div class="hero-bg-circle c2"></div>
+
+  <div class="hero-content">
+    <div class="hero-tag">Reserva privada · Monterrey, N.L.</div>
+    <h1>Tu <em>refugio</em> en las montañas del norte</h1>
+    <p>Cabañas de lujo en medio de la naturaleza, con vistas espectaculares al Cañón de la Huasteca. A solo 20 minutos de San Pedro Garza García, dentro de un fraccionamiento privado con seguridad 24/7.</p>
+    <div class="hero-stats">
+      <div>
+        <div class="hero-stat-num">3</div>
+        <div class="hero-stat-label">Cabañas exclusivas</div>
+      </div>
+      <div>
+        <div class="hero-stat-num">4.9★</div>
+        <div class="hero-stat-label">Calificación</div>
+      </div>
+      <div>
+        <div class="hero-stat-num">8</div>
+        <div class="hero-stat-label">Huéspedes máx. c/u</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BOOKING ENGINE -->
+  <div class="booking-float">
+    <div class="booking-float-title">Reserva tu <span>escapada</span></div>
+    <div class="booking-float-subtitle">Disponibilidad en tiempo real · Sin cargos ocultos</div>
+
+    <div class="form-group">
+      <label class="form-label">Alojamiento</label>
+      <select class="form-select" id="type">
+        <option value="montesco">🏡 Casa Montesco — desde $6,000/noche</option>
+        <option value="patagalana">⭐ Casa Patagalana — desde $11,000/noche</option>
+        <option value="piedra">🪨 Casa de Piedra — desde $3,000/noche</option>
+      </select>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label class="form-label">Llegada</label>
+        <div class="date-input-wrapper">
+          <input type="date" class="form-input" id="checkin">
+          <span class="date-icon">📅</span>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Salida</label>
+        <div class="date-input-wrapper">
+          <input type="date" class="form-input" id="checkout">
+          <span class="date-icon">📅</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="form-label">Huéspedes</label>
+      <div class="guests-row">
+        <span class="guests-label">Personas (máx. 8)</span>
+        <div class="guests-controls">
+          <button class="guest-btn" onclick="changeGuests(-1)">−</button>
+          <span class="guest-count" id="guestCount">2</span>
+          <button class="guest-btn" onclick="changeGuests(1)">+</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="price-preview">
+      <div>
+        <div class="price-from">Precio por noche</div>
+        <div class="price-total" id="priceTotal">$6,000</div>
+        <div class="price-per-night">MXN · 3 noches</div>
+      </div>
+      <div style="text-align: right;">
+        <div style="font-size: 12px; color: var(--text-muted);">Total estimado</div>
+        <div style="font-size: 20px; font-weight: 500; color: var(--text); font-family: 'Fraunces', serif;" id="totalPrice">$18,000</div>
+        <div style="font-size: 11px; color: var(--forest);">✓ Cancelación gratis</div>
+      </div>
+    </div>
+
+    <button class="btn-book" onclick="openModal()">
+      Ver disponibilidad →
+    </button>
+
+    <div class="trust-row">
+      <div class="trust-item"><span class="trust-dot"></span>Sin cargos ocultos</div>
+      <div class="trust-item"><span class="trust-dot"></span>Pago seguro</div>
+      <div class="trust-item"><span class="trust-dot"></span>Co-host 24/7</div>
+    </div>
+  </div>
+</section>
+
+<!-- ALOJAMIENTOS -->
+<section class="section" id="alojamientos">
+  <div class="section-tag">Nuestros alojamientos</div>
+  <h2 class="section-title">Tres refugios, <em>una experiencia</em> inigualable</h2>
+  <p class="section-sub">Las tres propiedades están dentro del mismo fraccionamiento privado, rodeadas de pinos y con vistas impresionantes a las montañas y el cañón.</p>
+
+  <div class="properties-grid">
+
+    <!-- Casa Montesco -->
+    <div class="property-card">
+      <div class="property-img">
+        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='400'%3E%3Crect width='600' height='400' fill='%238B6B4A'/%3E%3C/svg%3E"
+             data-real="montesco"
+             alt="Casa Montesco — Terraza con vista a las montañas"
+             style="background: linear-gradient(135deg, #C9A87A 0%, #8B6B4A 50%, #5C3D1E 100%);">
+        <div class="property-badge">🌲 Casa de Campo</div>
+        <button class="property-favorite" onclick="toggleFav(this)">♡</button>
+      </div>
+      <div class="property-body">
+        <div class="property-location">Valle Huasteca · San Pedro Garza García</div>
+        <div class="property-name">Casa Montesco</div>
+        <div class="property-desc">Casa de campo tipo cabaña de dos plantas con vista espectacular al valle y las montañas. Perfecta para reconectar con la naturaleza en un ambiente sereno y seguro.</div>
+        <div class="property-features">
+          <div class="property-feat">🛏 3 recámaras</div>
+          <div class="property-feat">👥 hasta 8 huéspedes</div>
+          <div class="property-feat">🍳 Cocina equipada</div>
+          <div class="property-feat">🌿 Terraza panorámica</div>
+          <div class="property-feat">🔥 Parrilla / Palapa</div>
+          <div class="property-feat">🚗 3 autos</div>
+        </div>
+        <div class="property-footer">
+          <div class="property-price">
+            <span class="property-price-amount">$6,000</span>
+            <span class="property-price-night"> MXN / noche*</span>
+            <div style="font-size:11px;color:var(--text-muted);margin-top:2px;">*más depósito en garantía</div>
+          </div>
+          <div class="property-rating">
+            <span class="stars">★★★★★</span> 4.9 <span style="color:var(--text-muted);font-size:11px">(47)</span>
+          </div>
+        </div>
+        <button class="btn-ver" onclick="openModal()">Reservar Casa Montesco →</button>
+      </div>
+    </div>
+
+    <!-- Casa Patagalana -->
+    <div class="property-card">
+      <div class="property-img">
+        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='400'%3E%3Crect width='600' height='400' fill='%235C3D1E'/%3E%3C/svg%3E"
+             data-real="patagalana"
+             alt="Casa Patagalana — Vista al cañón con alberca"
+             style="background: linear-gradient(135deg, #7A9B6A 0%, #5C7A4A 50%, #3D5A2A 100%);">
+        <div class="property-badge">⭐ Lujo · Piscina</div>
+        <button class="property-favorite" onclick="toggleFav(this)">♡</button>
+      </div>
+      <div class="property-body">
+        <div class="property-location">Valle Huasteca · San Pedro Garza García</div>
+        <div class="property-name">Casa Patagalana</div>
+        <div class="property-desc">"Superó nuestras expectativas... La vista al cañón impresionante. La casa impecable; muebles, arte, cuartos, cocina, balcones excelentes." — Huésped verificado.</div>
+        <div class="property-features">
+          <div class="property-feat">🛏 3 recámaras</div>
+          <div class="property-feat">👥 hasta 8 huéspedes</div>
+          <div class="property-feat">🏊 Piscina exterior</div>
+          <div class="property-feat">🍳 Cocina totalmente equipada</div>
+          <div class="property-feat">🌅 Terraza con vista al cañón</div>
+          <div class="property-feat">🚗 hasta 5 autos</div>
+        </div>
+        <div class="property-footer">
+          <div class="property-price">
+            <span class="property-price-amount">$11,000</span>
+            <span class="property-price-night"> MXN / noche*</span>
+            <div style="font-size:11px;color:var(--text-muted);margin-top:2px;">*más depósito en garantía</div>
+          </div>
+          <div class="property-rating">
+            <span class="stars">★★★★★</span> 4.97 <span style="color:var(--text-muted);font-size:11px">(83)</span>
+          </div>
+        </div>
+        <button class="btn-ver" onclick="openModal()">Reservar Casa Patagalana →</button>
+      </div>
+    </div>
+
+    <!-- Casa de Piedra -->
+    <div class="property-card">
+      <div class="property-img">
+        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='400'%3E%3Crect width='600' height='400' fill='%236B7A6A'/%3E%3C/svg%3E"
+             data-real="piedra"
+             alt="Casa de Piedra — Vista al valle rodeado de montañas"
+             style="background: linear-gradient(135deg, #A0936A 0%, #6B7A6A 50%, #3D4A3E 100%);">
+        <div class="property-badge">🪨 Casa de Dos Plantas</div>
+        <button class="property-favorite" onclick="toggleFav(this)">♡</button>
+      </div>
+      <div class="property-body">
+        <div class="property-location">Valle · 20 min de San Pedro Garza García</div>
+        <div class="property-name">Casa de Piedra</div>
+        <div class="property-desc">Un espacio cálido y acogedor situado en un valle rodeado de montañas. Ideal para familias, amigos o parejas. Dentro de un residencial campestre con seguridad 24/7.</div>
+        <div class="property-features">
+          <div class="property-feat">🛏 2 recámaras</div>
+          <div class="property-feat">👥 hasta 4 huéspedes</div>
+          <div class="property-feat">🍳 Cocina equipada</div>
+          <div class="property-feat">🌿 Terraza y patio</div>
+          <div class="property-feat">🏕️ Palapa (reserva previa)</div>
+          <div class="property-feat">🚗 hasta 3 autos</div>
+        </div>
+        <div class="property-footer">
+          <div class="property-price">
+            <span class="property-price-amount">$3,000</span>
+            <span class="property-price-night"> MXN / noche*</span>
+            <div style="font-size:11px;color:var(--text-muted);margin-top:2px;">*más depósito en garantía</div>
+          </div>
+          <div class="property-rating">
+            <span class="stars">★★★★★</span> 4.9 <span style="color:var(--text-muted);font-size:11px">(nuevo)</span>
+          </div>
+        </div>
+        <button class="btn-ver" onclick="openModal()">Reservar Casa de Piedra →</button>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- AMENIDADES -->
+<section class="amenities-section">
+  <div class="section-tag">Todo lo que necesitas</div>
+  <h2 class="section-title">Comodidad en <em>plena naturaleza</em></h2>
+  <p class="section-sub">Nuestras cabañas están completamente equipadas para que solo te preocupes por descansar y disfrutar.</p>
+
+  <div class="amenities-grid">
+    <div class="amenity-card">
+      <div class="amenity-icon">🏔️</div>
+      <div class="amenity-name">Vistas panorámicas</div>
+      <div class="amenity-desc">Terrazas con vista directa a las montañas del Cañón de la Huasteca</div>
+    </div>
+    <div class="amenity-card">
+      <div class="amenity-icon">🔒</div>
+      <div class="amenity-name">Seguridad 24/7</div>
+      <div class="amenity-desc">Fraccionamiento privado con caseta de vigilancia las 24 horas</div>
+    </div>
+    <div class="amenity-card">
+      <div class="amenity-icon">🤝</div>
+      <div class="amenity-name">Co-host dedicado</div>
+      <div class="amenity-desc">Acompañamiento antes, durante y después de tu estadía</div>
+    </div>
+    <div class="amenity-card">
+      <div class="amenity-icon">🍳</div>
+      <div class="amenity-name">Cocina equipada</div>
+      <div class="amenity-desc">Todas las herramientas para preparar tus comidas favoritas</div>
+    </div>
+    <div class="amenity-card">
+      <div class="amenity-icon">🔥</div>
+      <div class="amenity-name">Parrilla y palapa</div>
+      <div class="amenity-desc">Espacio para asados bajo reserva previa (carbón no incluido)</div>
+    </div>
+    <div class="amenity-card">
+      <div class="amenity-icon">🏊</div>
+      <div class="amenity-name">Piscina exterior</div>
+      <div class="amenity-desc">Disponible en Casa Patagalana. Temperatura ambiente.</div>
+    </div>
+    <div class="amenity-card">
+      <div class="amenity-icon">🌲</div>
+      <div class="amenity-name">Reserva ecológica</div>
+      <div class="amenity-desc">Entorno natural con ardillas, coaties y fauna silvestre autóctona</div>
+    </div>
+    <div class="amenity-card">
+      <div class="amenity-icon">📍</div>
+      <div class="amenity-name">Ubicación ideal</div>
+      <div class="amenity-desc">20 min de San Pedro Garza García · 30 min del centro de Monterrey</div>
+    </div>
+  </div>
+</section>
+
+<!-- CÓMO FUNCIONA -->
+<section class="how-section">
+  <div class="section-tag">Simple y transparente</div>
+  <h2 class="section-title" style="color: var(--white);">Reservar en <em style="color: #F5C890;">4 pasos</em></h2>
+  <p class="section-sub" style="color: rgba(255,255,255,0.6);">Sin complicaciones. Sin sorpresas. Solo tú y las montañas.</p>
+
+  <div class="steps-grid">
+    <div class="step-card">
+      <div class="step-num">01</div>
+      <div class="step-icon">🏡</div>
+      <div class="step-title">Elige tu cabaña</div>
+      <div class="step-desc">Selecciona entre Casa Montesco o Casa Patagalana según tu grupo y presupuesto.</div>
+    </div>
+    <div class="step-card">
+      <div class="step-num">02</div>
+      <div class="step-icon">📅</div>
+      <div class="step-title">Elige fechas</div>
+      <div class="step-desc">Consulta disponibilidad en tiempo real y elige las noches que más te convengan.</div>
+    </div>
+    <div class="step-card">
+      <div class="step-num">03</div>
+      <div class="step-icon">💳</div>
+      <div class="step-title">Paga seguro</div>
+      <div class="step-desc">Tarjeta, transferencia o efectivo. Tu reserva queda confirmada al instante.</div>
+    </div>
+    <div class="step-card">
+      <div class="step-num">04</div>
+      <div class="step-icon">🗺️</div>
+      <div class="step-title">Llega y disfruta</div>
+      <div class="step-desc">Recibirás instrucciones de acceso y datos del co-host horas antes del check-in.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ACTIVIDADES -->
+<section class="activities-section" id="actividades">
+  <div class="section-tag">Experiencias únicas</div>
+  <h2 class="section-title">Más que solo <em>descansar</em></h2>
+  <p class="section-sub">Ofrecemos actividades especiales con costo adicional por persona, todas con reserva previa para garantizar disponibilidad.</p>
+
+  <div class="activities-grid">
+    <div class="activity-card">
+      <div class="activity-img" style="background: linear-gradient(135deg, #6B8F6C22, #3D5A3E22);">🥾</div>
+      <div class="activity-body">
+        <div class="activity-name">Senderismo y caminatas</div>
+        <div class="activity-desc">Rutas guiadas por el cañón y las montañas de la Sierra Madre. Paisajes que quitan el aliento en cada curva del camino.</div>
+        <div class="activity-note">★ Costo adicional por persona · Reserva previa</div>
+      </div>
+    </div>
+    <div class="activity-card">
+      <div class="activity-img" style="background: linear-gradient(135deg, #B8D4E822, #6B9FCE22);">🧘</div>
+      <div class="activity-body">
+        <div class="activity-name">Clases de Yoga</div>
+        <div class="activity-desc">Sesiones al aire libre rodeados de naturaleza. El escenario ideal para encontrar calma y bienestar en medio de las montañas.</div>
+        <div class="activity-note">★ Costo adicional por persona · Reserva previa</div>
+      </div>
+    </div>
+    <div class="activity-card">
+      <div class="activity-img" style="background: linear-gradient(135deg, #E8D4B022, #C8A87A22);">🌬️</div>
+      <div class="activity-body">
+        <div class="activity-name">Breathwork & Meditación</div>
+        <div class="activity-desc">Sesiones de técnicas de respiración y trabajo energético. Una experiencia transformadora con el sonido del viento entre los pinos.</div>
+        <div class="activity-note">★ Costo adicional por persona · Reserva previa</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIOS -->
+<section class="testimonials-section">
+  <div class="section-tag">Lo que dicen nuestros huéspedes</div>
+  <h2 class="section-title">Experiencias <em>reales</em></h2>
+
+  <div class="testimonials-grid">
+    <div class="testimonial-card">
+      <div class="testimonial-quote">"</div>
+      <p class="testimonial-text">Increíble. Superó nuestras expectativas, fue un super buen fin. Las montañas y la vista al cañón impresionantes. La casa impecable; los muebles, arte, cuartos, baños, cocina, balcones excelentes. 100% volveríamos.</p>
+      <div class="testimonial-author">
+        <div class="author-avatar" style="background: var(--forest);">MR</div>
+        <div>
+          <div class="author-name">Marcela R.</div>
+          <div class="author-trip">Casa Patagalana · Feb 2025</div>
+        </div>
+      </div>
+    </div>
+    <div class="testimonial-card">
+      <div class="testimonial-quote">"</div>
+      <p class="testimonial-text">El lugar es una joya escondida a minutos de Monterrey. La terraza de Casa Montesco con las montañas de fondo es algo que no se olvida. Volveremos con toda la familia.</p>
+      <div class="testimonial-author">
+        <div class="author-avatar" style="background: var(--earth);">JG</div>
+        <div>
+          <div class="author-name">Jorge G.</div>
+          <div class="author-trip">Casa Montesco · Ene 2025</div>
+        </div>
+      </div>
+    </div>
+    <div class="testimonial-card">
+      <div class="testimonial-quote">"</div>
+      <p class="testimonial-text">La clase de yoga al amanecer con vista a las montañas fue una experiencia única. La cabaña tiene todo lo necesario y el co-host estuvo pendiente en todo momento.</p>
+      <div class="testimonial-author">
+        <div class="author-avatar" style="background: var(--accent);">SL</div>
+        <div>
+          <div class="author-name">Sofía L.</div>
+          <div class="author-trip">Casa Patagalana · Mar 2025</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NOTAS IMPORTANTES -->
+<section class="notes-section">
+  <div class="section-tag">Información importante</div>
+  <h2 class="section-title" style="font-size:clamp(28px,3vw,40px);">Lo que debes <em>saber</em> antes de llegar</h2>
+
+  <div class="notes-grid">
+    <div class="note-card">
+      <div class="note-icon">🐾</div>
+      <div class="note-title">Reserva ecológica</div>
+      <div class="note-text">Nos encontramos en una reserva natural. Puede haber fauna silvestre: ardillas, coaties, osos y otras especies. En caso de avistamiento, reportar de inmediato y evitar acercamiento.</div>
+    </div>
+    <div class="note-card">
+      <div class="note-icon">🧥</div>
+      <div class="note-title">Prepara tu equipaje</div>
+      <div class="note-text">Recomendamos traer repelente de insectos y una chamarra o suéter, ya que las mañanas y noches en el valle pueden ser bastante frescas.</div>
+    </div>
+    <div class="note-card">
+      <div class="note-icon">🔐</div>
+      <div class="note-title">Acceso al residencial</div>
+      <div class="note-text">Para el ingreso es necesario compartir nombres completos de todos los huéspedes, placas, modelo y color del vehículo. Los datos de acceso se envían horas antes del check-in.</div>
+    </div>
+    <div class="note-card">
+      <div class="note-icon">🏕️</div>
+      <div class="note-title">Uso de palapa (Casa de Piedra)</div>
+      <div class="note-text">El uso de la palapa se realiza mediante reserva previa. Solicitarla con anticipación para tener todo listo. Uso de asadores suspendido temporalmente por incendios en la región.</div>
+    </div>
+    <div class="note-card">
+      <div class="note-icon">⚡</div>
+      <div class="note-title">Servicios en la naturaleza</div>
+      <div class="note-text">Nos encontramos en un valle en medio de la naturaleza, por lo que no estamos exentos de fallas en servicios por parte de nuestros proveedores (luz, agua, WiFi).</div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA + CALENDAR -->
+<section class="cta-section" id="como-llegar">
+  <div class="cta-content">
+    <div class="section-tag">Disponibilidad</div>
+    <h2 class="section-title">¿Cuándo es tu <em>escapada</em>?</h2>
+    <p class="section-sub" style="margin-bottom:0">Consulta disponibilidad en tiempo real y asegura tu cabaña favorita. Los fines de semana se agotan rápido.</p>
+    <div class="cta-buttons">
+      <button class="btn-primary" onclick="openModal()">Verificar disponibilidad</button>
+      <button class="btn-secondary" onclick="document.getElementById('contacto').scrollIntoView({behavior:'smooth'})">Contactar por WhatsApp</button>
+    </div>
+  </div>
+
+  <div class="cta-visual">
+    <div class="cta-availability">
+      <div class="avail-title">Disponibilidad — Próximo mes</div>
+      <div class="avail-calendar" id="miniCalendar"></div>
+    </div>
+    <div style="background: var(--white); border-radius: 12px; padding: 16px; box-shadow: var(--shadow-sm);">
+      <div style="font-size: 12px; color: var(--text-muted); margin-bottom: 12px;">Resumen del alojamiento</div>
+      <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+        <span style="font-size: 13px; color: var(--text-muted);">Distancia a San Pedro</span>
+        <span style="font-size: 13px; font-weight: 500; color: var(--forest);">20 min ≈</span>
+      </div>
+      <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+        <span style="font-size: 13px; color: var(--text-muted);">Ocupación máxima</span>
+        <span style="font-size: 13px; font-weight: 500; color: var(--text);">8 huéspedes</span>
+      </div>
+      <div style="display: flex; justify-content: space-between;">
+        <span style="font-size: 13px; color: var(--text-muted);">Seguridad</span>
+        <span style="font-size: 13px; font-weight: 500; color: var(--text);">24/7 ★</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer id="contacto">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="nav-logo" style="color:var(--white); font-size:20px; margin-bottom:12px">
+        El <span style="color:var(--accent)">Jonúco</span>
+      </div>
+      <p class="footer-desc">Cabañas de lujo en la naturaleza norteña, a minutos de Monterrey. Tres propiedades únicas en el Valle Huasteca, dentro de un residencial privado con seguridad 24/7.</p>
+    </div>
+    <div>
+      <div class="footer-title">Alojamientos</div>
+      <ul class="footer-links">
+        <li><a href="#">Casa Montesco</a></li>
+        <li><a href="#">Casa Patagalana</a></li>
+        <li><a href="#">Casa de Piedra</a></li>
+        <li><a href="#">Comparar propiedades</a></li>
+        <li><a href="#">Tarifas y disponibilidad</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-title">Actividades</div>
+      <ul class="footer-links">
+        <li><a href="#">Senderismo</a></li>
+        <li><a href="#">Yoga en la naturaleza</a></li>
+        <li><a href="#">Breathwork</a></li>
+        <li><a href="#">Paquetes grupales</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-title">Información</div>
+      <ul class="footer-links">
+        <li><a href="#">Cómo llegar</a></li>
+        <li><a href="#">Políticas de cancelación</a></li>
+        <li><a href="#">Reglamento de huéspedes</a></li>
+        <li><a href="#">Preguntas frecuentes</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy">© 2026 Cabañas El Jonúco · Valle Huasteca, Nuevo León</div>
+    <div class="footer-contact">WhatsApp: <a href="https://wa.me/528180000000">+52 81 0000 0000</a> · Hecho con ♥ en Monterrey</div>
+  </div>
+</footer>
+
+<!-- MODAL DE RESERVA -->
+<div class="modal-overlay" id="modalOverlay" onclick="closeModalOutside(event)">
+  <div class="modal">
+    <div class="modal-header">
+      <div class="modal-title">Completa tu reserva</div>
+      <button class="modal-close" onclick="closeModal()">✕</button>
+    </div>
+
+    <div class="booking-steps">
+      <div class="step-indicator done" id="step1Ind">1. Alojamiento</div>
+      <div class="step-indicator active" id="step2Ind">2. Tus datos</div>
+      <div class="step-indicator" id="step3Ind">3. Pago</div>
+    </div>
+
+    <!-- Step 2 -->
+    <div id="stepGuest">
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label">Nombre</label>
+          <input type="text" class="form-input" placeholder="Tu nombre">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Apellido</label>
+          <input type="text" class="form-input" placeholder="Tu apellido">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Correo electrónico</label>
+        <input type="email" class="form-input" placeholder="correo@ejemplo.com">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Teléfono / WhatsApp</label>
+        <input type="tel" class="form-input" placeholder="+52 81 0000 0000">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Vehículo (placas, modelo, color)</label>
+        <input type="text" class="form-input" placeholder="KXR-1234, Camioneta blanca, Ford Explorer">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Nota especial (opcional)</label>
+        <textarea class="form-input" rows="2" placeholder="Llegada tardía, necesidades especiales, actividades de interés..."></textarea>
+      </div>
+
+      <div class="booking-summary">
+        <div class="summary-row"><span id="modalPropName">Casa Montesco · 3 noches</span><span>$8,550</span></div>
+        <div class="summary-row"><span>Tarifa de limpieza</span><span>$600</span></div>
+        <div class="summary-row"><span>Cargo por servicio (5%)</span><span>$458</span></div>
+        <div class="summary-row total"><span>Total</span><span>$9,608 MXN</span></div>
+      </div>
+
+      <button class="btn-book" onclick="goToPayment()">Continuar al pago →</button>
+    </div>
+
+    <!-- Step 3 -->
+    <div id="stepPayment" style="display:none;">
+      <div class="form-group">
+        <label class="form-label">Método de pago</label>
+        <div class="payment-methods">
+          <div class="pay-method selected" onclick="selectPay(this)">💳 Tarjeta</div>
+          <div class="pay-method" onclick="selectPay(this)">🏦 Transferencia</div>
+          <div class="pay-method" onclick="selectPay(this)">📱 OXXO / Efectivo</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Número de tarjeta</label>
+        <input type="text" class="form-input" placeholder="1234 5678 9012 3456">
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label">Vencimiento</label>
+          <input type="text" class="form-input" placeholder="MM/AA">
+        </div>
+        <div class="form-group">
+          <label class="form-label">CVV</label>
+          <input type="text" class="form-input" placeholder="123">
+        </div>
+      </div>
+
+      <div class="booking-summary">
+        <div class="summary-row total"><span>Total a pagar</span><span>$9,608 MXN</span></div>
+        <div style="font-size:11px;color:var(--forest);margin-top:6px;">✓ Cancelación gratuita hasta 48 horas antes del check-in</div>
+      </div>
+
+      <button class="btn-book" onclick="confirmBooking()">Confirmar reserva 🎉</button>
+      <div style="text-align:center;margin-top:12px;font-size:12px;color:var(--text-muted);">
+        🔒 Pago cifrado · 256-bit SSL · Procesado por Stripe
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+  let guests = 2;
+  const prices = { montesco: 6000, patagalana: 11000, piedra: 3000 };
+
+  function changeGuests(n) {
+    guests = Math.max(1, Math.min(8, guests + n));
+    document.getElementById('guestCount').textContent = guests;
+  }
+
+  document.getElementById('type').addEventListener('change', function() {
+    const p = prices[this.value] || 2850;
+    document.getElementById('priceTotal').textContent = '$' + p.toLocaleString();
+    document.getElementById('totalPrice').textContent = '$' + (p * 3).toLocaleString();
+  });
+
+  const today = new Date();
+  const fmt = d => d.toISOString().split('T')[0];
+  document.getElementById('checkin').value = fmt(new Date(today.getTime() + 86400000 * 3));
+  document.getElementById('checkout').value = fmt(new Date(today.getTime() + 86400000 * 6));
+
+  function buildCalendar() {
+    const cal = document.getElementById('miniCalendar');
+    const days = ['D','L','M','M','J','V','S'];
+    days.forEach(d => {
+      const el = document.createElement('div');
+      el.className = 'cal-day'; el.style.fontSize = '10px'; el.style.fontWeight = '500';
+      el.style.color = 'var(--text-muted)'; el.textContent = d;
+      cal.appendChild(el);
+    });
+    const statuses = ['empty','empty','available','available','booked','booked','available',
+      'available','available','today','booked','booked','available','available',
+      'available','available','available','booked','booked','available','available',
+      'available','available','available','booked','available','available','available',
+      'available','available'];
+    statuses.forEach((s,i) => {
+      const el = document.createElement('div');
+      el.className = 'cal-day ' + s;
+      el.textContent = s === 'empty' ? '' : (i - 1);
+      cal.appendChild(el);
+    });
+  }
+  buildCalendar();
+
+  function openModal() {
+    document.getElementById('modalOverlay').classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeModal() {
+    document.getElementById('modalOverlay').classList.remove('active');
+    document.body.style.overflow = '';
+  }
+  function closeModalOutside(e) {
+    if (e.target === document.getElementById('modalOverlay')) closeModal();
+  }
+  function goToPayment() {
+    document.getElementById('stepGuest').style.display = 'none';
+    document.getElementById('stepPayment').style.display = 'block';
+    document.getElementById('step2Ind').className = 'step-indicator done';
+    document.getElementById('step3Ind').className = 'step-indicator active';
+  }
+  function confirmBooking() {
+    closeModal();
+    const div = document.createElement('div');
+    div.style.cssText = 'position:fixed;inset:0;z-index:2000;background:rgba(44,24,16,0.85);display:flex;align-items:center;justify-content:center;backdrop-filter:blur(8px);';
+    div.innerHTML = `<div style="background:var(--white);border-radius:24px;padding:48px;text-align:center;max-width:420px;margin:20px;">
+      <div style="font-size:64px;margin-bottom:20px;">🏔️</div>
+      <div style="font-family:'Fraunces',serif;font-size:28px;font-weight:700;color:var(--earth-dark);margin-bottom:12px;">¡Reserva confirmada!</div>
+      <p style="color:var(--text-muted);line-height:1.6;margin-bottom:24px;">Recibirás un correo con todos los detalles e instrucciones de acceso al residencial horas antes de tu llegada. ¡Nos vemos pronto en El Jonúco!</p>
+      <div style="background:var(--sand);border-radius:12px;padding:16px;margin-bottom:24px;text-align:left;">
+        <div style="font-size:13px;color:var(--text-muted);margin-bottom:6px;">Número de reserva</div>
+        <div style="font-family:'Fraunces',serif;font-size:22px;font-weight:700;color:var(--earth-dark);">#JNK-2025-${Math.floor(1000+Math.random()*9000)}</div>
+      </div>
+      <button onclick="this.closest('div[style]').remove()" style="background:var(--accent);color:white;border:none;padding:12px 32px;border-radius:50px;cursor:pointer;font-size:15px;font-family:'DM Sans',sans-serif;">¡Perfecto, gracias!</button>
+    </div>`;
+    document.body.appendChild(div);
+  }
+  function selectPay(el) {
+    document.querySelectorAll('.pay-method').forEach(e => e.classList.remove('selected'));
+    el.classList.add('selected');
+  }
+  function toggleFav(btn) {
+    btn.textContent = btn.textContent === '♡' ? '♥' : '♡';
+    btn.style.color = btn.textContent === '♥' ? '#E05050' : '';
+  }
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('animate-in'); });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.property-card, .amenity-card, .step-card, .testimonial-card, .activity-card, .note-card').forEach(el => observer.observe(el));
+
+  // Load real photos using actual uploaded screenshot filenames as descriptive placeholders
+  // In production, replace the data-real attr with actual photo paths
+  const photoMap = {
+    montesco: 'Montesco — terraza con vista panorámica a las montañas',
+    patagalana: 'Patagalana — piscina exterior con vista al cañón y pico La Silla',
+    piedra: 'Casa de Piedra — valle rodeado de montañas a 20 min de San Pedro'
+  };
+</script>
+</body>
+</html>
